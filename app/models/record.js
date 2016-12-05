@@ -6,7 +6,8 @@ const Mixed    = Schema.Types.Mixed;
 
 const RecordSchema = new Schema({
   domain: String,
-  data: Mixed
+  date:   {type: Date, default: Date.now},
+  data:   Mixed
 });
 
 RecordSchema
