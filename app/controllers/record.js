@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const Record   = mongoose.model('Record');
 
 module.exports = function (app) {
-  app.use('/data', router);
+  app.use('/record', router);
 };
 
 router.post('/add/:domain', (req, res, next) => {
@@ -24,15 +24,10 @@ router.post('/add/:domain', (req, res, next) => {
     return res.jsonp({message: 'no content'});
   }
 
-  let data;
-  try {
-    data = JSON.parse(body);
-  } catch (e) {
-    res.status(500);
-    return res.jsonp({
-      message: 'unparseable content', error: e
-    });
-  }
+
+  const key  = body.key;
+  const data = body.data;
+
 
   new Record({domain, data})
     .save((err) => {
