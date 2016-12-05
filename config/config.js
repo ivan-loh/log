@@ -10,30 +10,30 @@ const config = {
     root: rootPath,
     key: '',
     app: {
-      name: 't-server'
+      name: 'log'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/t-server-development'
+    db: 'mongodb://localhost/log-development'
   },
 
   test: {
     root: rootPath,
     key: '',
     app: {
-      name: 't-server'
+      name: 'log'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/t-server-test'
+    db: 'mongodb://localhost/log-test'
   },
 
   production: {
     root: rootPath,
     key: '',
     app: {
-      name: 't-server'
+      name: 'log'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/t-server-production'
+    db: 'mongodb://localhost/log-production'
   }
 
 };
