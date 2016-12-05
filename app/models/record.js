@@ -1,18 +1,18 @@
-// Example model
+'use strict';
 
-var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema   = mongoose.Schema;
+const Mixed    = Schema.Types.Mixed;
 
-var ArticleSchema = new Schema({
-  title: String,
-  url: String,
-  text: String
+const RecordSchema = new Schema({
+  domain: String,
+  data: Mixed
 });
 
-ArticleSchema
-  .virtual('date')
-  .get(function(){
-    return this._id.getTimestamp();
+RecordSchema
+  .virtual('log-date')
+  .get(() => {
+    return this._id.getTimestamp()
   });
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Record', RecordSchema);
